@@ -6,40 +6,58 @@
   <title>ARTMUC Autumn 2025</title>
   <link rel="stylesheet" href="/styles.css" />
   <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .product {
+      flex: 1 1 30%;
+      min-width: 200px;
+      background: #ddd;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+  </style>
 </head>
-<body style="display: grid">
+<body>
   <h1>Bubble Merchandises</h1>
 
-  <div class="product" style="grid-row: 2;">
-    <img src="images/keychain_2_bubbles.jpg" alt="keychain 2 bubbles" />
-    <h2>"Bubble Memory" Keychain (๒)</h2>
-    <p>A beautiful keepsake from the "Under the Butterfly Wings" installation. This handcrafted keychain features two delicate bubbles, capturing the spirit and form of Rungploy Lorpaitoon's stunning artwork. It's a small piece of a big story.</p>
-    <div id="paypal-button-container-1"></div>
-    
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="display: grid; grid-template-columns: max-content; align-items: center">
-      <input type="hidden" name="cmd" value="_s-xclick" />
-      <input type="hidden" name="hosted_button_id" value="MZ36YKX95HERG" />
-      <span style="grid-row: 1; padding-right: 10px; font-weight: 600;">€40</span>
-      <input type="hidden" name="currency_code" value="EUR" />
-      <input style="grid-row: 1;" type="image" src="https://www.paypalobjects.com/de_DE/i/btn/btn_buynow_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Buy Now" />
-    </form>
+  <div class="container">
+    <div class="product">
+      <img src="images/keychain_2_bubbles.jpg" alt="keychain 2 bubbles" />
+      <h2>"Bubble Memory" Keychain (๒)</h2>
+      <p>A beautiful keepsake from the "Under the Butterfly Wings" installation. This handcrafted keychain features two delicate bubbles, capturing the spirit and form of Rungploy Lorpaitoon's stunning artwork. It's a small piece of a big story.</p>
+      <div id="paypal-button-container-1"></div>
+      
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="display: grid; grid-template-columns: max-content; align-items: center">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="MZ36YKX95HERG" />
+        <span style="grid-row: 1; padding-right: 10px; font-weight: 600;">€40</span>
+        <input type="hidden" name="currency_code" value="EUR" />
+        <input style="grid-row: 1;" type="image" src="https://www.paypalobjects.com/de_DE/i/btn/btn_buynow_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Buy Now" />
+      </form>
 
-  </div>
+    </div>
 
-  <div class="product" style="grid-row: 2;"">
-    <img src="images/keychain_3_bubbles.jpg" alt="keychain 3 bubbles" />
-    <h2>"Bubble Memory" Keychain (๓)</h2>
-    <p>Carry a piece of the immersive ARTMUC experience with you. This premium keychain, a miniature sculpture from the "Under the Butterfly Wings" installation, features three handcrafted bubbles. A tangible memory of art and imagination.</p>
-    <div id="paypal-button-container-1"></div>
-    
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="display: grid; grid-template-columns: max-content; align-items: center">
-      <input type="hidden" name="cmd" value="_s-xclick" />
-      <input type="hidden" name="hosted_button_id" value="MZ36YKX95HERG" />
-      <span style="grid-row: 1; padding-right: 10px; font-weight: 600;">€50</span>
-      <input type="hidden" name="currency_code" value="EUR" />
-      <input style="grid-row: 1;" type="image" src="https://www.paypalobjects.com/de_DE/i/btn/btn_buynow_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Buy Now" />
-    </form>
+    <div class="product"">
+      <img src="images/keychain_3_bubbles.jpg" alt="keychain 3 bubbles" />
+      <h2>"Bubble Memory" Keychain (๓)</h2>
+      <p>Carry a piece of the immersive ARTMUC experience with you. This premium keychain, a miniature sculpture from the "Under the Butterfly Wings" installation, features three handcrafted bubbles. A tangible memory of art and imagination.</p>
+      <div id="paypal-button-container-1"></div>
+      
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="display: grid; grid-template-columns: max-content; align-items: center">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="MZ36YKX95HERG" />
+        <span style="grid-row: 1; padding-right: 10px; font-weight: 600;">€50</span>
+        <input type="hidden" name="currency_code" value="EUR" />
+        <input style="grid-row: 1;" type="image" src="https://www.paypalobjects.com/de_DE/i/btn/btn_buynow_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Buy Now" />
+      </form>
 
+    </div>
   </div>
 
   <script>
