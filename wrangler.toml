@@ -1,3 +1,8 @@
-name = "my-artfair-shop"
+name = "ploy-shop"
 compatibility_date = "2024-07-01"
 pages_build_output_dir = "./public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ploy-shop"
+database_id = "c47896b4-e987-42b3-a44d-207275f7b79f"
