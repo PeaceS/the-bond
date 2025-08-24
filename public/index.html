@@ -49,6 +49,8 @@
     </div>
   </div>
 
+  <ul id="todo-list"></ul>
+
   <script>
     paypal.Buttons({
       createOrder: function (data, actions) {
@@ -76,6 +78,37 @@
         });
       }
     }).render('#paypal-button-container-1');
+  
+    // Use an asynchronous function to fetch the data
+    async function fetchTodos() {
+      try {
+        // The URL for your API endpoint
+        const response = await fetch('/api/test-query');
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        // Parse the JSON response
+        const todos = await response.json();
+
+        // Get the list element from the HTML
+        const todoList = document.getElementById('todo-list');
+
+        // Loop through the data and create list items
+        todos.forEach(todo => {
+          console.log(todo);
+          const listItem = document.createElement('li');
+          listItem.textContent = todo.item; // Assuming a 'title' column in your todos table
+          todoList.appendChild(listItem);
+        });
+      } catch (error) {
+          console.error('Failed to fetch todos:', error);
+      }
+    }
+
+    // Call the function when the page loads
+    fetchTodos();
   </script>
 </body>
 </html>
