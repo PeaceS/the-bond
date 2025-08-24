@@ -86,7 +86,7 @@
         const response = await fetch('/api/test-query');
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         // Parse the JSON response
@@ -97,13 +97,12 @@
 
         // Loop through the data and create list items
         todos.forEach(todo => {
-          console.log(todo);
           const listItem = document.createElement('li');
           listItem.textContent = todo.item; // Assuming a 'title' column in your todos table
           todoList.appendChild(listItem);
         });
       } catch (error) {
-          console.error('Failed to fetch todos:', error);
+        console.error('Failed to fetch todos:', error);
       }
     }
 
