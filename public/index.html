@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css" />
   <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
+  <script src="/main.js"></script>
 </head>
 <body>
   <h1>Bubble Merchandises</h1>
@@ -30,8 +31,6 @@
       </form>
     </div>
   </div>
-
-  <ul id="todo-list"></ul>
 
   <script>
     // paypal.Buttons({
@@ -60,46 +59,6 @@
     //     });
     //   }
     // }).render('#paypal-button-container-1');
-  
-    async function fetchProducts() {
-      try {
-        const response = await fetch('/products');
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const products = await response.json();
-        const productContainer = document.getElementById('product-container');
-        const productTemplate = document.getElementById('product-template');
-
-        products.forEach(product => {
-          const productDiv = productTemplate.cloneNode(true);
-          productDiv.removeAttribute('id');
-
-          titleDiv = productDiv.querySelector('.product-title');
-          titleDiv.textContent = product.item;
-
-          imageDiv = productDiv.querySelector('.product-image');
-          imageDiv.src = product.image_url;
-          imageDiv.alt = product.item;
-
-          descriptionDiv = productDiv.querySelector('.product-description');
-          descriptionDiv.textContent = product.description;
-
-          priceDiv = productDiv.querySelector('.product-price');
-          priceDiv.textContent = product.price;
-
-          productContainer.appendChild(productDiv);
-        });
-
-        productContainer.removeChild(productTemplate);
-      } catch (error) {
-        console.error('Failed to fetch products:', error);
-      }
-    }
-
-    fetchProducts();
   </script>
 </body>
 </html>
