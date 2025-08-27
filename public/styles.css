@@ -19,6 +19,7 @@ body {
   margin-bottom: 2rem;
   min-width: 300px;
   max-width: 400px;
+  height: fit-content;
   flex: 1 1 30%;
   background: #fefefe;
   padding: 25px;
