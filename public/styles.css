@@ -12,7 +12,8 @@ body {
   flex-wrap: wrap;
   gap: 16px;
 }
-.product {
+.product,
+.banner {
   border: 1px solid #ddd;
   padding: 1rem;
   margin-bottom: 2rem;
@@ -54,4 +55,7 @@ body {
       padding: 10px;
     }
   }
+}
+.banner {
+  background-image: url('/public/images/ARTMUC_MAI25_Datum_1080x1920.jpg');
 }
