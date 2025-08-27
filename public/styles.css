@@ -7,7 +7,7 @@ body {
 .thai {
   font-family: "Noto Sans Thai", sans-serif;
 }
-.container {
+.product-container {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -35,9 +35,13 @@ body {
     align-items: center;
     grid-gap: 5px;
 
-    .price {
+    .product-price {
       grid-row: 1;
       font-weight: 600;
+
+      &::before {
+        content: "€";
+      }
     }
 
     .vat {

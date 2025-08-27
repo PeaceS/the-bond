@@ -13,39 +13,21 @@
 <body>
   <h1>Bubble Merchandises</h1>
 
-  <div class="container">
-    <div class="product">
-      <img src="images/keychain_2_bubbles.jpg" alt="keychain 2 bubbles" />
-      <h3>"Bubble Memory" Keychain <span class="thai">(๒)</span></h3>
-      <p>A beautiful keepsake from the "Under the Butterfly Wings" installation. This handcrafted keychain features two delicate bubbles, capturing the spirit and form of Rungploy Lorpaitoon's stunning artwork. It's a small piece of a big story.</p>
+  <div class="product-container">
+    <div class="product product-template">
+      <img class="product-image" />
+      <h3 class="product-title"></h3>
+      <p class="product-description"></p>
       <div id="paypal-button-container-1"></div>
-      
+
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
         <input type="hidden" name="cmd" value="_s-xclick" />
         <input type="hidden" name="hosted_button_id" value="MZ36YKX95HERG" />
-        <span class="price">€40</span>
+        <span class="product-price"></span>
         <span class="vat">(incl. 19% VAT)</span>
         <input type="hidden" name="currency_code" value="EUR" />
         <input class="button" type="image" src="https://www.paypalobjects.com/de_DE/i/btn/btn_buynow_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Buy Now" />
       </form>
-
-    </div>
-
-    <div class="product"">
-      <img src="images/keychain_3_bubbles.jpg" alt="keychain 3 bubbles" />
-      <h3>"Bubble Memory" Keychain <span class="thai">(๓)</span></h3>
-      <p>Carry a piece of the immersive ARTMUC experience with you. This premium keychain, a miniature sculpture from the "Under the Butterfly Wings" installation, features three handcrafted bubbles. A tangible memory of art and imagination.</p>
-      <div id="paypal-button-container-1"></div>
-      
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="MZ36YKX95HERG" />
-        <span class="price">€50</span>
-        <span class="vat">(incl. 19% VAT)</span>
-        <input type="hidden" name="currency_code" value="EUR" />
-        <input class="button" type="image" src="https://www.paypalobjects.com/de_DE/i/btn/btn_buynow_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Buy Now" />
-      </form>
-
     </div>
   </div>
 
@@ -79,28 +61,36 @@
     //   }
     // }).render('#paypal-button-container-1');
   
-    // Use an asynchronous function to fetch the data
     async function fetchTodos() {
       try {
-        // The URL for your API endpoint
-        const response = await fetch('/test-query');
+        const response = await fetch('/products');
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        // Parse the JSON response
-        const todos = await response.json();
+        const products = await response.json();
+        const productContainer = document.getElementsByClassName('product-container');
+        const productTemplate = document.getElementsByClassName('product-template');
 
-        // Get the list element from the HTML
-        const todoList = document.getElementById('todo-list');
+        products.forEach(product => {
+          const productDiv = productTemplate.cloneNode(true);
+          productDiv.className = 'product';
 
-        // Loop through the data and create list items
-        todos.forEach(todo => {
-          const listItem = document.createElement('li');
-          listItem.textContent = todo.item; // Assuming a 'title' column in your todos table
-          todoList.appendChild(listItem);
+          titleDiv = productDiv.getElementsByClassName('product-title');
+          titleDiv.textContent = product.item;
+
+          imageDiv = productDiv.getElementsByClassName('product-image');
+          imageDiv.src = product.image_url;
+          imageDiv.alt = product.item;
+
+          descriptionDiv = productDiv.getElementsByClassName('product-description');
+          descriptionDiv.textContent = product.description;
+
+          productContainer.appendChild(productDiv);
         });
+
+        productContainer.removeChild(productTemplate);
       } catch (error) {
         console.error('Failed to fetch todos:', error);
       }
