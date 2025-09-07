@@ -1,3 +1,10 @@
+function formatId(id) {
+  const idAsString = String(id);
+  const paddedId = idAsString.padStart(3, '0');
+
+  return `tb${paddedId}`;
+}
+
 async function fetchProducts() {
   try {
     const response = await fetch('/products');
@@ -15,16 +22,17 @@ async function fetchProducts() {
       productDiv.removeAttribute('id');
 
       titleDiv = productDiv.querySelector('.product-title');
-      titleDiv.textContent = product.item;
+      titleDiv.textContent = formatId(product.id);
 
       imageDiv = productDiv.querySelector('.product-image');
-      imageDiv.src = product.image_url;
-      imageDiv.alt = product.item;
+      imageDiv.src = `images/the-bond/${product.id}.jpg`;
+      imageDiv.alt = formatId(product.id);
 
-      descriptionDiv = productDiv.querySelector('.product-description');
-      descriptionDiv.textContent = product.description;
+      // descriptionDiv = productDiv.querySelector('.product-description');
+      // descriptionDiv.textContent = product.description;
 
       priceDiv = productDiv.querySelector('.product-price');
+      priceDiv.classList.add(product.currency);
       priceDiv.textContent = product.price;
 
       productContainer.appendChild(productDiv);

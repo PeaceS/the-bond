@@ -31,7 +31,7 @@ body {
     height: auto;
   }
 
-  form {
+  .details {
     display: inline-grid;
     grid-template-columns: max-content;
     align-items: center;
@@ -41,7 +41,7 @@ body {
       grid-row: 1;
       font-weight: 600;
 
-      &::before {
+      &.EUR:before {
         content: "€";
       }
     }

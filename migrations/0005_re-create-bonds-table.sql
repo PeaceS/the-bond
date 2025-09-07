@@ -1,0 +1,9 @@
+-- Migration number: 0005 	 2025-09-07T08:54:35.131Z
+CREATE TABLE bonds (
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  sold BOOLEAN NOT NULL DEFAULT FALSE,
+  email TEXT,
+  price INTEGER,
+  currency TEXT,
+  location TEXT
+);
