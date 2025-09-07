@@ -2,7 +2,7 @@ function formatId(id) {
   const idAsString = String(id);
   const paddedId = idAsString.padStart(3, '0');
 
-  return `tb${paddedId}`;
+  return `TB-${paddedId}`;
 }
 
 async function fetchProducts() {

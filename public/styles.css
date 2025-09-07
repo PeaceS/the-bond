@@ -37,6 +37,14 @@ body {
     align-items: center;
     grid-gap: 5px;
 
+    img {
+      margin-bottom: 15px;
+    }
+
+    h3, h5 {
+      margin: 5px;
+    }
+
     .product-price {
       grid-row: 1;
       font-weight: 600;
