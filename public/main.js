@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const productContainer = document.getElementById('products-container');
   let isLoading = false;
 
   const apiURL = '/products';
@@ -23,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   
       const products = await response.json();
+      const productContainer = document.getElementById('product-container');
       const productTemplate = document.getElementById('product-template');
   
       products.forEach(product => {
