@@ -7,6 +7,9 @@ body {
 .thai {
   font-family: "Noto Sans Thai", sans-serif;
 }
+.hide {
+  display: none;
+}
 #product-container {
   display: flex;
   flex-wrap: wrap;

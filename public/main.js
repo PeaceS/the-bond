@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const products = await response.json();
       const productContainer = document.getElementById('product-container');
       const productTemplate = document.getElementById('product-template');
+      productTemplate.classList.remove('hide');
   
       products.forEach(product => {
         const productDiv = productTemplate.cloneNode(true);
@@ -46,11 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
         productContainer.appendChild(productDiv);
       });
   
-      productContainer.removeChild(productTemplate);
     } catch (error) {
       console.error('Failed to fetch products:', error);
     } finally {
       isLoading = false;
+      productTemplate.classList.add('hide');
     }
   }
 
