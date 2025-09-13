@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
         productContainer.appendChild(productDiv);
       });
   
+      productTemplate.classList.add('hide');
     } catch (error) {
       console.error('Failed to fetch products:', error);
     } finally {
       isLoading = false;
-      productTemplate.classList.add('hide');
     }
   }
 
