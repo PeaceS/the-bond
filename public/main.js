@@ -7,6 +7,9 @@ function formatId(id) {
 
 async function fetchProducts() {
   try {
+    if (isLoading) return; // Prevent multiple simultaneous requests
+    isLoading = true;
+
     const response = await fetch('/products');
 
     if (!response.ok) {
@@ -41,7 +44,25 @@ async function fetchProducts() {
     productContainer.removeChild(productTemplate);
   } catch (error) {
     console.error('Failed to fetch products:', error);
+  } finally {
+    isLoading = false;
   }
 }
 
-fetchProducts();
+document.addEventListener('DOMContentLoaded', () => {
+  const productsContainer = document.getElementById('products-container');
+  let isLoading = false;
+
+  const apiURL = '/products';
+
+  fetchProducts();
+
+  window.addEventListener('scroll', () => {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    if (scrollTop + clientHeight >= scrollHeight - 50) {
+      if (!isLoading) {
+        fetchProducts();
+      }
+    }
+  });
+});
