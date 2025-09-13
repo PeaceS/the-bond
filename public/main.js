@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   let isLoading = false;
+  let loadedBondIds = [];
 
   const apiURL = '/products';
 
@@ -15,7 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isLoading) return; // Prevent multiple simultaneous requests
       isLoading = true;
   
-      const response = await fetch(apiURL);
+      const url = new URL(apiURL, window.location.origin);
+      if (loadedBondIds.length > 0) {
+        url.searchParams.set('excludeIds', loadedBondIds.join(','));
+      }
+      const response = await fetch(url);
   
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -45,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         priceDiv.textContent = product.price;
   
         productContainer.appendChild(productDiv);
+        loadedBondIds.push(product.id);
       });
   
       productTemplate.classList.add('hide');
