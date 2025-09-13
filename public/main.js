@@ -28,8 +28,8 @@ async function fetchProducts() {
       imageDiv.src = `images/the-bond/${product.id}.png`;
       imageDiv.alt = formatId(product.id);
 
-      // descriptionDiv = productDiv.querySelector('.product-description');
-      // descriptionDiv.textContent = product.description;
+      descriptionDiv = productDiv.querySelector('.product-description');
+      descriptionDiv.textContent = product.description;
 
       priceDiv = productDiv.querySelector('.product-price');
       priceDiv.classList.add(product.currency);
