@@ -25,7 +25,7 @@ async function fetchProducts() {
       titleDiv.textContent = formatId(product.id);
 
       imageDiv = productDiv.querySelector('.product-image');
-      imageDiv.src = `images/the-bond/${product.id}.jpg`;
+      imageDiv.src = `images/the-bond/${product.id}.png`;
       imageDiv.alt = formatId(product.id);
 
       // descriptionDiv = productDiv.querySelector('.product-description');
