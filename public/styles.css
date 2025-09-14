@@ -55,6 +55,7 @@ body {
       width: 45px;
       height: 45px;
 
+      background-color: rgba(0, 0, 0, 0.05);
       background-image: url('images/icons/slider-button.svg');
       background-size: 60%;
       background-repeat: no-repeat;
