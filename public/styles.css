@@ -30,7 +30,7 @@ body {
   text-align: center;
 
   .slider-container {
-    display: flex;
+    display: grid;
     align-items: center;
     gap: 20px;
 

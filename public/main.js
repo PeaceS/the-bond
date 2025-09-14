@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         prevBtn = productDiv.querySelector('.previous-btn');
         prevBtn.addEventListener('click', () => {
+          console.log(currentImageIndex);
           currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
           updateImage();
         });
