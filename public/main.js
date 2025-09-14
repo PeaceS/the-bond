@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         titleDiv.textContent = formatId(product.id);
   
         imageDiv = productDiv.querySelector('.product-image');
-        imageDiv.src = `images/the-bond/${product.id}.png`;
+        imageDiv.src = `images/the-bond/${product.id}/1.png`;
         imageDiv.alt = formatId(product.id);
   
         descriptionDiv = productDiv.querySelector('.product-description');
@@ -48,9 +48,35 @@ document.addEventListener('DOMContentLoaded', () => {
         priceDiv = productDiv.querySelector('.product-price');
         priceDiv.classList.add(product.currency);
         priceDiv.textContent = product.price;
+
+        let currentImageIndex = 0;
+        const images = [
+          `images/the-bond/${product.id}/1.png`,
+          `images/the-bond/${product.id}/2.png`,
+          `images/the-bond/${product.id}/3.png`
+        ];
+  
+        const updateImage = () => {
+          // Fade out the current image
+          imageDiv.classList.remove('show');
+  
+          // Wait for the fade-out to complete before changing the image source
+          setTimeout(() => {
+              imageDiv.src = images[currentImageIndex];
+              // Fade in the new image
+              imageDiv.classList.add('show');
+          }, 500); // This delay should match the CSS transition duration
+        };
+
+        prevBtn = productDiv.querySelector('.previous-btn');
+        prevBtn.addEventListener('click', () => {
+          currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+          updateImage();
+        });
   
         productContainer.appendChild(productDiv);
         loadedBondIds.push(product.id);
+
       });
   
       productTemplate.classList.add('hide');
