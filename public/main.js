@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const updateImage = () => {
           // Fade out the current image
           imageDiv.classList.remove('show');
+          console.log(imageDiv);
   
           // Wait for the fade-out to complete before changing the image source
           setTimeout(() => {
