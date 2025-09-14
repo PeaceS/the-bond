@@ -41,7 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
         imageDiv = productDiv.querySelector('.product-image');
         imageDiv.src = `images/the-bond/${product.id}/1.png`;
         imageDiv.alt = formatId(product.id);
-  
+        imageDiv.id = formatId(product.id)
+
         descriptionDiv = productDiv.querySelector('.product-description');
         descriptionDiv.textContent = product.description;
   
@@ -55,9 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
           `images/the-bond/${product.id}/2.png`,
           `images/the-bond/${product.id}/3.png`
         ];
-  
-        const updateImage = () => {
-          // Fade out the current image
+
+        const updateImage = (id) => {
+          imageDiv = document.getElementById(id);
           imageDiv.classList.remove('show');
           console.log(imageDiv);
   
@@ -71,9 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         prevBtn = productDiv.querySelector('.previous-btn');
         prevBtn.addEventListener('click', () => {
-          console.log(currentImageIndex);
           currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-          updateImage();
+          updateImage(formatId(product.id));
+        });
+
+        nextBtn = productDiv.querySelector('.next-btn');
+        nextBtn.addEventListener('click', () => {
+          currentImageIndex = (currentImageIndex + 1) % images.length;
+          updateImage(formatId(product.id));
         });
   
         productContainer.appendChild(productDiv);
