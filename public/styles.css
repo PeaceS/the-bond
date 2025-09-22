@@ -75,16 +75,17 @@ body {
   .red-dot-icon {
     display: inline-block;
     position: relative;
-    width: 10px; /* Adjust the width and height for size */
-    height: 10px;
+    width: 13px; /* Adjust the width and height for size */
+    height: 13px;
+    margin-left: 10px;
 
     &:before {
       content: '';
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 10px; /* Same size as the parent */
-      height: 10px;
+      width: 13px; /* Same size as the parent */
+      height: 13px;
       background-color: #DC143C;
       border-radius: 50%; /* This makes it a perfect circle */
       transform: translate(-50%, -50%); /* Centers the dot */
