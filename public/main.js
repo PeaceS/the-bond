@@ -37,6 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
         titleDiv = productDiv.querySelector('.product-title');
         titleDiv.textContent = formatId(product.id);
+
+        if (product.sold) {
+          const redDot = document.createElement('i');
+          redDot.classList.add('red-dot-icon');
+          titleDiv.appendChild(redDot);
+        }
   
         imageDiv = productDiv.querySelector('.product-image');
         imageDiv.src = `images/the-bond/${product.id}/1.png`;

@@ -5,7 +5,7 @@ export async function onRequestGet(context) {
     const url = new URL(context.request.url);
     const excludeIdsString = url.searchParams.get('excludeIds');
 
-    let query = "SELECT * FROM bonds WHERE sold = FALSE";
+    let query = "SELECT * FROM bonds";
     let params = [];
 
     if (excludeIdsString) {
