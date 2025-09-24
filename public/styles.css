@@ -20,6 +20,10 @@ body {
 }
 .the-bond {
   font-family: "Verdana", sans-serif;
+
+  @media screen and (max-width: 695px) {
+    text-align: center;
+  }
 }
 .hide {
   display: none;
