@@ -16,8 +16,8 @@ export async function onRequestGet(context) {
       const placeholders = excludeIds.map(() => '?').join(', ');
 
       // Append the NOT IN clause to the query
-      query += ` AND id NOT IN (${placeholders})`;
-      
+      query += ` WHERE id NOT IN (${placeholders})`;
+
       // Add the IDs to the parameters array
       params = excludeIds;
     }
