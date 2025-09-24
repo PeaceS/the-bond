@@ -4,9 +4,14 @@ export async function onRequestGet(context) {
 
     const url = new URL(context.request.url);
     const excludeIdsString = url.searchParams.get('excludeIds');
+    const searchId = url.searchParams.get('searchId');
 
     let query = "SELECT * FROM bonds";
     let params = [];
+
+    if (searchId) {
+      query += ` WHERE id = ${searchId}`;
+    }
 
     if (excludeIdsString) {
       // Split the string into an array of IDs and convert them to numbers
