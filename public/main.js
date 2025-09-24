@@ -11,12 +11,23 @@ document.addEventListener('DOMContentLoaded', () => {
     return `TB-${paddedId}`;
   }
   
-  async function fetchProducts() {
+  async function fetchProducts(id) {
     try {
       if (isLoading) return; // Prevent multiple simultaneous requests
       isLoading = true;
   
+      const productContainer = document.getElementById('product-container');
       const url = new URL(apiURL, window.location.origin);
+
+      if (id) {
+        loadedBondIds = [];
+        for (const row of productContainer.querySelectorAll('.removable')) {
+          row.remove();
+        }
+
+        url.searchParams.set('searchId', id);
+      }
+
       if (loadedBondIds.length > 0) {
         url.searchParams.set('excludeIds', loadedBondIds.join(','));
       }
@@ -27,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   
       const products = await response.json();
-      const productContainer = document.getElementById('product-container');
       const productTemplate = document.getElementById('product-template');
       productTemplate.classList.remove('hide');
   
@@ -80,9 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
           updateImage(formatId(product.id));
         });
   
+        productDiv.classList.add('removable');
         productContainer.appendChild(productDiv);
         loadedBondIds.push(product.id);
-
       });
   
       productTemplate.classList.add('hide');
@@ -93,7 +103,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  async function bindTheBondSearch() {
+    const searchInput = document.getElementById('search-the-bond');
+    let timeoutId;
+  
+    searchInput.addEventListener('input', function(event) {
+      const itemId = event.target.value;
+  
+      // Clear the previous timeout to reset the timer
+      clearTimeout(timeoutId);
+  
+      // Set a new timeout to call the function after 500ms
+      timeoutId = setTimeout(async () => {
+        await fetchProducts(itemId);
+      }, 500); // Wait for 500 milliseconds before calling
+    });
+  }
+
   fetchProducts();
+  bindTheBondSearch();
 
   window.addEventListener('scroll', () => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
