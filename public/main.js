@@ -48,10 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
         imageDiv.src = `images/the-bond/${product.id}/a.jpg`;
         imageDiv.alt = formatId(product.id);
         imageDiv.id = formatId(product.id)
-  
-        priceDiv = productDiv.querySelector('.product-price');
-        priceDiv.classList.add(product.currency);
-        priceDiv.textContent = product.price;
 
         let currentImageIndex = 0;
         const images = [
