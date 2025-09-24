@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
   
         imageDiv = productDiv.querySelector('.product-image');
-        imageDiv.src = `images/the-bond/${product.id}/1.png`;
+        imageDiv.src = `images/the-bond/${product.id}/a.jpg`;
         imageDiv.alt = formatId(product.id);
         imageDiv.id = formatId(product.id)
 
@@ -58,15 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let currentImageIndex = 0;
         const images = [
-          `images/the-bond/${product.id}/1.png`,
-          `images/the-bond/${product.id}/2.png`,
-          `images/the-bond/${product.id}/3.png`
+          `images/the-bond/${product.id}/a.jpg`,
+          `images/the-bond/${product.id}/b.jpg`,
+          `images/the-bond/${product.id}/c.jpg`
         ];
 
         const updateImage = (id) => {
           imageDiv = document.getElementById(id);
           imageDiv.classList.remove('show');
-          console.log(imageDiv);
   
           // Wait for the fade-out to complete before changing the image source
           setTimeout(() => {
