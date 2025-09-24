@@ -23,7 +23,7 @@ export async function onRequestGet(context) {
     }
 
     // Add the remaining parts of the query
-    query += " ORDER BY random() LIMIT 2";
+    query += " ORDER BY random() LIMIT 10";
     
     // Use prepare() to safely execute the query with parameters
     const { results } = await env.DB.prepare(query).bind(...params).all();
