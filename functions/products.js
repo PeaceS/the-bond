@@ -10,12 +10,10 @@ export async function onRequestGet(context) {
 
     if (excludeIdsString) {
       // Split the string into an array of IDs and convert them to numbers
-      const excludeIds = excludeIdsString.split(',').map(id => parseInt(id, 10));
-      console.log(excludeIds);
-      
+      const excludeIds = decodeURIComponent(excludeIdsString).split(',').map(id => parseInt(id, 10));
+
       // Create a string of placeholders (?, ?, ?) for the IN clause
       const placeholders = excludeIds.map(() => '?').join(', ');
-      console.log(placeholders);
 
       // Append the NOT IN clause to the query
       query += ` AND id NOT IN (${placeholders})`;
