@@ -62,8 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentImageIndex = 0;
         const images = [
           `images/the-bond/${product.id}/a.jpg`,
-          `images/the-bond/${product.id}/b.jpg`,
-          `images/the-bond/${product.id}/c.jpg`
+          `images/the-bond/${product.id}/b.jpg`
         ];
 
         const updateImage = (id) => {
@@ -90,6 +89,13 @@ document.addEventListener('DOMContentLoaded', () => {
           updateImage(formatId(product.id));
         });
   
+        // Preload
+        const preload = document.createElement('link');
+        preload.rel = 'preload';
+        preload.as = 'image';
+        preload.href = images[1];
+        document.head.appendChild(preload);
+
         productDiv.classList.add('removable');
         productContainer.appendChild(productDiv);
         loadedBondIds.push(product.id);
