@@ -43,9 +43,13 @@ body {
   height: fit-content;
   flex: 1 1 30%;
   background: #fefefe;
-  padding: 25px;
+  padding: 20px;
   box-sizing: border-box;
   text-align: center;
+
+  .product-title {
+    margin-bottom: 0;
+  }
 
   .slider-container {
     position: relative;
