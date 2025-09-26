@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const preloadLink = document.createElement('link');
       preloadLink.rel = 'preload';
       preloadLink.as = 'image';
-      preloadLink.href = `images/the-bond/${id}/a.jpg`;
+      preloadLink.href = `images/the-bond/${id}/a.webp`;
       document.head.appendChild(preloadLink);
     }
   }, 3000);
