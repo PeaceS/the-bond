@@ -55,14 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
   
         imageDiv = productDiv.querySelector('.product-image');
-        imageDiv.src = `images/the-bond/${product.id}/a.jpg`;
+        imageDiv.src = `images/the-bond/${product.id}/a.webp`;
         imageDiv.alt = formatId(product.id);
         imageDiv.id = formatId(product.id)
 
         let currentImageIndex = 0;
         const images = [
-          `images/the-bond/${product.id}/a.jpg`,
-          `images/the-bond/${product.id}/b.jpg`
+          `images/the-bond/${product.id}/a.webp`,
+          `images/the-bond/${product.id}/b.webp`
         ];
 
         const updateImage = (id) => {
