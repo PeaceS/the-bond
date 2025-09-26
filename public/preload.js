@@ -9,5 +9,5 @@ document.addEventListener('DOMContentLoaded', () => {
       preloadLink.href = `images/the-bond/${id}/a.webp`;
       document.head.appendChild(preloadLink);
     }
-  }, 3000);
+  }, 1000);
 });

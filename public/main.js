@@ -126,15 +126,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  async function scrollToLoad() {
+    window.addEventListener('scroll', () => {
+      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+      if (scrollTop + clientHeight >= scrollHeight - 50) {
+        if (!isLoading) {
+          fetchProducts();
+        }
+      }
+    });
+  }
+
+  async function checkHomeSource() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sourceValue = urlParams.get('source');
+
+    if (sourceValue == 'artmuc') {
+      const homeIcon = document.getElementById('home');
+      homeIcon.classList.remove('hide');
+    }
+  }
+
   fetchProducts();
   bindTheBondSearch();
-
-  window.addEventListener('scroll', () => {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight - 50) {
-      if (!isLoading) {
-        fetchProducts();
-      }
-    }
-  });
+  scrollToLoad();
+  checkHomeSource();
 });
