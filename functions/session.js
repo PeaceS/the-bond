@@ -18,7 +18,8 @@ export async function onRequestPost(context) {
             success_url: `${protocol}://${host}/success`,
             cancel_url: `${protocol}://${host}/cancel`,
             metadata: {
-                product_type: 'bonds'
+              product_type: 'bonds',
+              product_id: 0
             },
         });
 
