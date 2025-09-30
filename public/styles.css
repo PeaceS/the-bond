@@ -14,6 +14,11 @@
   font-display: swap;
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 body {
   font-family: "Gilroy", sans-serif;
   padding: 2rem;
@@ -151,7 +156,7 @@ body {
       background-color: rgb(0, 116, 212);
       color: white;
       border-radius: 5px;
-      width: 100%;
+      width: 150px;
       max-width: 300px;
       height: 35px;
       border: none;
