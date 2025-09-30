@@ -16,7 +16,10 @@ export async function onRequestPost(context) {
             }],
             mode: 'payment',
             success_url: `${protocol}://${host}/success`,
-            cancel_url: `${protocol}://${host}/cancel`
+            cancel_url: `${protocol}://${host}/cancel`,
+            metadata: {
+                product_type: 'bonds'
+            },
         });
 
         return new Response(JSON.stringify({ url: session.url }), {
