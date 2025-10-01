@@ -147,8 +147,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  async function bindStripeButton() {
+    async function createSession() {
+      const response = await fetch('/session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      return await response.json();
+    }
+
+    const stripeLink = document.querySelector('.stripe-link');
+    stripeLink.addEventListener('click', async (event) => {
+      event.preventDefault();
+      const button = event.currentTarget;
+      const loader = button.querySelector('.loader');
+      loader.classList.add('loading');
+      try {
+        const checkoutLink = await createSession();
+        window.location.href = checkoutLink.url;
+      } finally {
+        loader.classList.remove('loading');
+      }
+    });
+  }
+
   fetchProducts();
   bindTheBondSearch();
   scrollToLoad();
   checkHomeSource();
+  bindStripeButton();
 });
