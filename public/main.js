@@ -164,12 +164,16 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault();
       const button = event.currentTarget;
       const loader = button.querySelector('.loader');
+      const icon = button.querySelector('.icon');
+
       loader.classList.add('loading');
+      icon.classList.add('hide');
       try {
         const checkoutLink = await createSession();
         window.location.href = checkoutLink.url;
       } finally {
         loader.classList.remove('loading');
+        icon.classList.remove('hide');
       }
     });
   }
