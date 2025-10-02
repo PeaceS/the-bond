@@ -198,6 +198,17 @@ body {
       grid-row: 3;
       padding: 10px;
     }
+
+    .via-stripe {
+      font-size: 0.3em;
+      color: #777;
+
+      i {
+        background-image: url('images/icons/stripe.svg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
   }
 
   .search-section {
