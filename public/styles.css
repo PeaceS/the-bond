@@ -167,6 +167,14 @@ body {
       justify-content: center;
       gap: 5px;
 
+      .icon {
+        width: 15px;
+        height: 15px;
+        background-image: url('images/icons/credit-card.svg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+
       .loader {
         border: 3px solid #f3f3f3; /* Light grey border */
         border-top: 3px solid #3498db; /* Blue border for the spinning part */
@@ -190,11 +198,23 @@ body {
       grid-row: 3;
       padding: 10px;
     }
+
+    .via-stripe {
+      font-size: 0.3em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .stripe-icon {
+        width: 25px;
+        height: 12px;
+      }
+    }
   }
 
   .search-section {
     margin: 20px 35px;
-    input {
+    .search-box {
       width: 100%;
       padding: 10px 15px;
       border: 1px solid #ddd; /* A very light gray border */

@@ -21,15 +21,22 @@
         By owning "The Bond", you become part of their story, helping to weave a future filled with hope and joy.
       </p>
       <div class="search-section">
-        <input type="text" id="search-the-bond" placeholder="Search the bond" />
+        <input type="text" id="search-the-bond" class="search-box" placeholder="Search the bond" />
       </div>
       <div class="details">
         <span class="product-price EUR">250</span>
         <span class="vat">(incl. 19% VAT)</span>
         <button class="stripe-link">
           <span class="loader"></span>
+          <span class="icon"></span>
           Pay
         </button>
+        <span class="via-stripe">
+          Accept payments with
+          <svg class="stripe-icon">
+            <use href="images/icons/stripe.svg"></use>
+          </svg>
+        </span>
       </div>
     </div>
     <div class="product" id="product-template">
