@@ -147,9 +147,17 @@ body {
       }
     }
 
-    .vat {
+    #vat {
       grid-row: 2;
       font-size: 0.6em;
+
+      &:before {
+        content: '(incl. ';
+      }
+
+      &:after {
+        content: '% VAT)';
+      }
     }
 
     button.stripe-link {

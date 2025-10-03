@@ -6,3 +6,7 @@ pages_build_output_dir = "./public"
 binding = "DB"
 database_name = "ploy-shop"
 database_id = "c47896b4-e987-42b3-a44d-207275f7b79f"
+
+[[kv_namespaces]]
+binding = "CONFIG"
+id = "26f5b0363c0f45f6a138f354fb2d6d69"

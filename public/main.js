@@ -178,9 +178,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  async function fetchVat() {
+    const response = await fetch('/config/THE_BOND_VAT');
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const vat = await response.text();
+    const textVat = document.getElementById('vat');
+
+    textVat.textContent = vat;
+  }
+
   fetchProducts();
   bindTheBondSearch();
   scrollToLoad();
   checkHomeSource();
   bindStripeButton();
+  fetchVat();
 });
